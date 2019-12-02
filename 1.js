@@ -8,4 +8,5 @@ const calculateFuel = moduleMass => {
 const calculateFuelSum = moduleMasses =>
   moduleMasses.reduce((sum, mass) => sum + calculateFuel(mass), 0);
 
-runWithInput(calculateFuelSum);
+const prepareData = data => data.split("\r\n");
+runWithInput("input1.txt", data => calculateFuelSum(prepareData(data)));
