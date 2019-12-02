@@ -24,7 +24,7 @@ const runInstruction = (memory, pointer) => {
         ...memory.slice(outputAddress + 1)
       ];
     default:
-      throw new Error(`Unknown command ${memory[pointer]}`);
+      throw Error(`Unknown command ${memory[pointer]}`);
   }
 };
 const runProgram = (memory, pointer = 0) =>
@@ -41,6 +41,7 @@ const findInputs = (output, memory) => {
       }
     }
   }
+  throw Error(`No matching inputs found for ${output}`);
 };
 const insertInputs = (memory, noun, verb) => [
   memory[0],
